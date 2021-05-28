@@ -1,20 +1,20 @@
+import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import { View, Text } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
-import Home from "../screens/Home";
 import About from "../screens/About";
 import Contacts from "../screens/Contacts";
+import Register from "../screens/Register";
 
 const Stack = createStackNavigator();
 
-const HomeStack = () => {
+const RegisterStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        component={Home}
-        name="home"
+        name="register"
+        component={Register}
         options={{
-          title: "Página Principal",
+          title: "Registrate",
         }}
       />
       <Stack.Screen
@@ -28,11 +28,11 @@ const HomeStack = () => {
         component={Contacts}
         name="contact"
         options={{
-          title: "Contactanos",
+          title: "Contacts",
         }}
       />
     </Stack.Navigator>
   );
 };
 
-export default HomeStack;
+export default RegisterStack;

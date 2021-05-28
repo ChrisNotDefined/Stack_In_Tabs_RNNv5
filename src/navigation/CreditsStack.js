@@ -2,19 +2,20 @@ import React from "react";
 import { View, Text } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/Home";
+import Credits from "../screens/Credits";
 import About from "../screens/About";
 import Contacts from "../screens/Contacts";
 
 const Stack = createStackNavigator();
 
-const HomeStack = () => {
+const CreditsStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        component={Home}
-        name="home"
+        component={Credits}
+        name="credits"
         options={{
-          title: "Página Principal",
+          title: "Credits",
         }}
       />
       <Stack.Screen
@@ -28,11 +29,11 @@ const HomeStack = () => {
         component={Contacts}
         name="contact"
         options={{
-          title: "Contactanos",
+          title: "Contáctanos",
         }}
       />
     </Stack.Navigator>
   );
 };
 
-export default HomeStack;
+export default CreditsStack;

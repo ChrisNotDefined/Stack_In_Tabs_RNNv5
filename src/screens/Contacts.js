@@ -1,12 +1,26 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Button } from 'react-native'
 
-const Contacts = () => {
+const Contacts = (props) => {
+  const { navigation } = props;
+
   return (
     <View>
-      <Text>Contacts</Text>
+      <Text>Estas en Contacts</Text>
+      <Button
+        title="Ir a About"
+        onPress={() => {
+          navigation.navigate("about");
+        }}
+      />
+      <Button
+        title="Ir a Credits"
+        onPress={() => {
+          navigation.navigate("credits");
+        }}
+      />
     </View>
-  )
+  );
 }
 
 export default Contacts

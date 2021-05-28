@@ -1,25 +1,26 @@
 import React from "react";
 import { View, Text, Button } from "react-native";
 
-const About = (props) => {
+const Register = (props) => {
   const { navigation } = props;
+
   return (
     <View>
-      <Text>Estas en About</Text>
+      <Text>Register Page</Text>
       <Button
-        title="Ir a Contact"
+        title="Ir a Contacts"
         onPress={() => {
           navigation.navigate("contact");
         }}
       />
       <Button
-        title="Ir a Credits"
+        title="Ir a About"
         onPress={() => {
-          navigation.navigate("credits");
+          navigation.navigate("about");
         }}
       />
     </View>
   );
 };
 
-export default About;
+export default Register;

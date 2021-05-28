@@ -1,10 +1,11 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
-import Home from "../screens/Home";
-import About from "../screens/About";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Contacts from "../screens/Contacts";
+import ContactsStack from "./ContactsStack";
+import CreditsStack from "./CreditsStack";
 import HomeStack from "./HomeStack";
+import AboutStack from "./AboutStack";
+import { Ionicons } from "@expo/vector-icons";
+import RegisterStack from "./RegisterStack";
 
 // const Stack = createStackNavigator();
 
@@ -37,31 +38,59 @@ const Tab = createBottomTabNavigator();
 
 const Navigation = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+          if (route.name === "home") {
+            iconName = focused ? "home-sharp" : "home-outline";
+          } else if (route.name === "about") {
+            iconName = focused ? "build" : "build-outline";
+          } else if (route.name === "contact") {
+            iconName = focused ? "md-person" : "md-person-outline";
+          } else if (route.name === "register") {
+            iconName = focused ? "ios-enter" : "ios-enter-outline";
+          } else if (route.name === "credits") {
+            iconName = focused ? "menu" : "menu-outline";
+          }
+
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+      })}
+    >
       <Tab.Screen
         component={HomeStack}
-        name="homeStack"
-        options={{ title: "Home Stack" }}
-      />
-      <Tab.Screen
-        component={Home}
         name="home"
         options={{
           title: "Página Principal",
         }}
       />
       <Tab.Screen
-        component={About}
+        component={AboutStack}
         name="about"
         options={{
           title: "Sobre nosotros",
         }}
       />
       <Tab.Screen
-        component={Contacts}
+        component={ContactsStack}
         name="contact"
         options={{
           title: "Contáctanos",
+        }}
+      />
+      <Tab.Screen
+        component={RegisterStack}
+        name="register"
+        options={{
+          title: "Registrate",
+        }}
+      />
+      <Tab.Screen
+        component={CreditsStack}
+        name="credits"
+        options={{
+          title: "Creditos",
         }}
       />
     </Tab.Navigator>
