@@ -6,7 +6,7 @@ const Home = (props) => {
 
   return (
     <View>
-      <Text>Estas en home</Text>
+      <Text>Estas en Home</Text>
       <Button
         title="Ir a Contact"
         onPress={() => {
